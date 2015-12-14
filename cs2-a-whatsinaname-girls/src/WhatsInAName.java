@@ -2,26 +2,41 @@ import java.util.Scanner;
 
 public class WhatsInAName {
 	/**
-	* cs2
-	* a period
-	* girls
-	* 
-	* what's in a name
-	* @author sholl97
-	* @author c18ac1
-	* @author bludetiger
-	* @author c18ck
-	* @author c18jj
-	* @author c18rc
-	*/
+	 * cs2
+	 * a period
+	 * girls
+	 * 
+	 * what's in a name
+	 * @author sholl97
+	 * @author c18ac1
+	 * @author bludetiger
+	 * @author c18ck
+	 * @author c18jj
+	 * @author c18rc
+	 */
 
 
 	public static void main(String[] args) {
 		//call functions here
+		
+		
+		
+		//BLU's TEST AREA 🐯
+		Scanner scan = new Scanner (System.in);
+		String name = scan.nextLine();
+		
+		//number of vowels
+		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
 
-
+		//hyphen
+		if (hyphen(name.toCharArray()) == true) {
+			System.out.println("You have a hyphen in your name.");
+		}
+		else {
+			System.out.println("You do not have a hyphen in your name.");
+		}
 	}
-	
+
 	/**
 	 * reverse the name
 	 * assigned: c18ac1
@@ -31,7 +46,7 @@ public class WhatsInAName {
 	static char [] reverse(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * count number of vowels
 	 * assigned: bludetiger
@@ -39,9 +54,19 @@ public class WhatsInAName {
 	 * @return number of vowels in user's name
 	 */
 	static int vowels (char [] name){
-		return 0;
+		int numbervowels = 0; //make thing of return type
+		//fill
+			for (int i = 0; i < name.length; i++) {
+				if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u')
+				{
+					numbervowels++;
+				}
+			}
+		//System.out.println(numbervowels);
+		// return
+		return numbervowels;
 	}
-	
+
 	/**
 	 * count number of consonants
 	 * assigned: c18ck
@@ -51,7 +76,7 @@ public class WhatsInAName {
 	static int consonants (char [] name){
 		return 0;
 	}
-	
+
 	/**
 	 * find first name
 	 * assigned: c18jj
@@ -61,7 +86,7 @@ public class WhatsInAName {
 	static char [] firstName(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * find last name
 	 * assigned: c18rc
@@ -71,7 +96,7 @@ public class WhatsInAName {
 	static char [] lastName(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * find middle name
 	 * assigned: c18ac1
@@ -81,7 +106,7 @@ public class WhatsInAName {
 	static char [] middleName(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * check to see if name has a hyphen
 	 * assigned: bludetiger
@@ -89,9 +114,18 @@ public class WhatsInAName {
 	 * @return whether there is a hyphen or not
 	 */
 	static boolean hyphen(char [] name){
-		return false;
+		//make thing of return type
+		boolean hyph = false;
+		//fill
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == '-'){
+				hyph = true;
+			}
+		}
+		
+		return hyph;
 	}
-	
+
 	/**
 	 * convert to lowercase
 	 * assigned: c18ck
@@ -101,7 +135,7 @@ public class WhatsInAName {
 	static char [] lowerCase(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * convert to uppercase
 	 * assigned: c18jj
@@ -111,7 +145,7 @@ public class WhatsInAName {
 	static char [] upperCase(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * scramble the name
 	 * assigned: c18rc
@@ -121,7 +155,7 @@ public class WhatsInAName {
 	static char [] mixUp(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * check to see if name is a palindrome
 	 * assigned: c18ac1
@@ -131,7 +165,7 @@ public class WhatsInAName {
 	static boolean palindrome (char [] name){
 		return false;
 	}
-	
+
 	/**
 	 * sort the letters of the name alphabetically
 	 * assigned: c18ck
@@ -141,7 +175,7 @@ public class WhatsInAName {
 	static char [] sortedName(char []name) {
 		return null;
 	}
-	
+
 	/** 
 	 * find the name's initials
 	 * assigned: c18jj
@@ -151,7 +185,7 @@ public class WhatsInAName {
 	static char [] initials(char []name) {
 		return null;
 	}
-	
+
 	/**
 	 * check to see if name has a title (e.g. Esq., PhD., etc.)
 	 * assigned: c18rc
