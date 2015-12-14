@@ -19,6 +19,14 @@ public class WhatsInAName {
 	public static void main(String[] args) {
 		//call functions here
 
+		
+		
+		//Claire's test area!
+		Scanner scan = new Scanner(System.in);
+		String name = scan.nextLine();
+				
+		consonants(name.toCharArray());
+		lowerCase(name.toCharArray());
 
 	}
 	
@@ -49,7 +57,14 @@ public class WhatsInAName {
 	 * @return number of consonants in user's name
 	 */
 	static int consonants (char [] name){
-		return 0;
+		int numberconsonants = 0; //create int
+		for (int i = 0; i < name.length; i++) { //fill int
+			if (name[i] != 'a'& name[i] != 'e'& name[i] != 'i'& name[i] != 'o'& name[i] != 'u' & name[i] != ' ' & name[i] != '-'){
+				numberconsonants++;
+			}
+		} 
+		System.out.println(numberconsonants);
+		return numberconsonants; //return int
 	}
 	
 	/**
@@ -98,8 +113,26 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's name in lowercase
 	 */
+	
 	static char [] lowerCase(char []name) {
-		return null;
+		char [] lowercasename = new char[name.length];
+		
+		for (int i = 0; i < name.length; i++) {
+					
+			if(name[i] > 64 & name[i] < 97){
+				name [i] = (char) (name[i] + 32);
+				lowercasename[i] = name[i];
+			}
+			else {
+				lowercasename[i] = name[i];
+			}
+		}
+		
+		for (int i = 0; i < lowercasename.length; i++) {
+			System.out.print(lowercasename[i]);
+		}
+
+		return lowercasename;
 	}
 	
 	/**
@@ -139,6 +172,8 @@ public class WhatsInAName {
 	 * @return the sorted name
 	 */
 	static char [] sortedName(char []name) {
+		
+		
 		return null;
 	}
 	
