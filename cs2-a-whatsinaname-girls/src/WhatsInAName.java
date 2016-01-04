@@ -15,16 +15,13 @@ public class WhatsInAName {
 	 * @author c18rc
 	 */
 
-
 	public static void main(String[] args) {
 		//call functions here
-		
-		
-		
+
 		//BLU's TEST AREA 🐯
 		Scanner scan = new Scanner (System.in);
 		String name = scan.nextLine();
-		
+
 		//number of vowels
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
 
@@ -34,6 +31,14 @@ public class WhatsInAName {
 		}
 		else {
 			System.out.println("You do not have a hyphen in your name.");
+		}
+
+		//title
+		if (title(name.toCharArray()) == true){
+			System.out.println("You have a title in your name.");
+		}
+		else {
+			System.out.println("You do not have a title in your name.");
 		}
 	}
 
@@ -56,12 +61,12 @@ public class WhatsInAName {
 	static int vowels (char [] name){
 		int numbervowels = 0; //make thing of return type
 		//fill
-			for (int i = 0; i < name.length; i++) {
-				if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u')
-				{
-					numbervowels++;
-				}
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u' || name[i] =='A' || name[i] == 'E' || name[i] == 'I' || name[i] == 'O' || name[i] == 'U')
+			{
+				numbervowels++;
 			}
+		}
 		//System.out.println(numbervowels);
 		// return
 		return numbervowels;
@@ -122,7 +127,7 @@ public class WhatsInAName {
 				hyph = true;
 			}
 		}
-		
+
 		return hyph;
 	}
 
@@ -188,11 +193,37 @@ public class WhatsInAName {
 
 	/**
 	 * check to see if name has a title (e.g. Esq., PhD., etc.)
-	 * assigned: c18rc
+	 * assigned: bludetiger
 	 * @param name the user's name
 	 * @return whether there is a title or not
 	 */
 	static boolean title (char [] name){
-		return false;
+		boolean iftitle = false;			
+		//title must have period at either 2nd, 3rd, or 4th char (ex: Dr. , Mrs. , Prof.)
+		if(name[2]=='.' || name[3]=='.' || name[4]=='.') {
+			iftitle = true;
+		}
+		//title could be "Miss"
+		else if (name[0]=='M' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='m' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//title could be "Prof"
+		else if (name[0]=='P' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='p' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//Esq. appears at end of a name
+		else if (name[name.length-1]=='.') {
+			iftitle = true;
+		}
+
+		return iftitle;
 	}
 }
