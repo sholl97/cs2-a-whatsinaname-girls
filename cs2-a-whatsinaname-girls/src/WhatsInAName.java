@@ -16,14 +16,34 @@ public class WhatsInAName {
 	 * @author c18rc
 	 */
 
-
 	public static void main(String[] args) {
-		//call functions here
-		Scanner scan= new Scanner(System.in); //take input
-		String string = scan.nextLine(); //scan the input
-		System.out.println(lastName(string.toCharArray())); //call last name function 
-		System.out.println(mixUp(string.toCharArray())); //call mixup function
+		//BLU's TEST AREA 🐯
+		Scanner scan = new Scanner (System.in);
+		String name = scan.nextLine();
 
+		//number of vowels
+		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
+
+		//hyphen
+		if (hyphen(name.toCharArray()) == true) {
+			System.out.println("You have a hyphen in your name.");
+		}
+		else {
+			System.out.println("You do not have a hyphen in your name.");
+		}
+
+		//title
+		if (title(name.toCharArray()) == true){
+			System.out.println("You have a title in your name.");
+		}
+		else {
+			System.out.println("You do not have a title in your name.");
+		}
+		
+		//rain's test area:
+		System.out.println(lastName(name.toCharArray())); //call last name function 
+		System.out.println(mixUp(name.toCharArray())); //call mixup function
+		
 	}
 
 	/**
@@ -43,7 +63,17 @@ public class WhatsInAName {
 	 * @return number of vowels in user's name
 	 */
 	static int vowels (char [] name){
-		return 0;
+		int numbervowels = 0; //make thing of return type
+		//fill
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u' || name[i] =='A' || name[i] == 'E' || name[i] == 'I' || name[i] == 'O' || name[i] == 'U')
+			{
+				numbervowels++;
+			}
+		}
+		//System.out.println(numbervowels);
+		// return
+		return numbervowels;
 	}
 
 	/**
@@ -107,7 +137,16 @@ public class WhatsInAName {
 	 * @return whether there is a hyphen or not
 	 */
 	static boolean hyphen(char [] name){
-		return false;
+		//make thing of return type
+		boolean hyph = false;
+		//fill
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == '-'){
+				hyph = true;
+			}
+		}
+
+		return hyph;
 	}
 
 	/**
@@ -188,11 +227,37 @@ public class WhatsInAName {
 
 	/**
 	 * check to see if name has a title (e.g. Esq., PhD., etc.)
-	 * assigned: c18rc
+	 * assigned: bludetiger
 	 * @param name the user's name
 	 * @return whether there is a title or not
 	 */
 	static boolean title (char [] name){
-		return false;
+		boolean iftitle = false;			
+		//title must have period at either 2nd, 3rd, or 4th char (ex: Dr. , Mrs. , Prof.)
+		if(name[2]=='.' || name[3]=='.' || name[4]=='.') {
+			iftitle = true;
+		}
+		//title could be "Miss"
+		else if (name[0]=='M' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='m' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//title could be "Prof"
+		else if (name[0]=='P' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='p' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//Esq. appears at end of a name
+		else if (name[name.length-1]=='.') {
+			iftitle = true;
+		}
+
+		return iftitle;
 	}
 }
