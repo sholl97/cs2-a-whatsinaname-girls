@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class WhatsInAName {
@@ -15,12 +16,7 @@ public class WhatsInAName {
 	 * @author c18rc
 	 */
 
-
 	public static void main(String[] args) {
-		//call functions here
-
-
-
 		//BLU's TEST AREA 🐯
 		Scanner scan = new Scanner (System.in);
 		String name = scan.nextLine();
@@ -35,6 +31,19 @@ public class WhatsInAName {
 		else {
 			System.out.println("You do not have a hyphen in your name.");
 		}
+
+		//title
+		if (title(name.toCharArray()) == true){
+			System.out.println("You have a title in your name.");
+		}
+		else {
+			System.out.println("You do not have a title in your name.");
+		}
+		
+		//rain's test area:
+		System.out.println(lastName(name.toCharArray())); //call last name function 
+		System.out.println(mixUp(name.toCharArray())); //call mixup function
+		
 
 
 		//Claire's test area!
@@ -72,7 +81,7 @@ public class WhatsInAName {
 		int numbervowels = 0; //make thing of return type
 		//fill
 		for (int i = 0; i < name.length; i++) {
-			if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u')
+			if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u' || name[i] =='A' || name[i] == 'E' || name[i] == 'I' || name[i] == 'O' || name[i] == 'U')
 			{
 				numbervowels++;
 			}
@@ -114,8 +123,22 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's last name
 	 */
-	static char [] lastName(char []name) {
-		return null;
+
+	static char [] lastName(char []name) { 
+		char []last = new char[name.length]; //create an array for the name
+		int temp=0; 
+		for (int i= 0; i < name.length; i++){
+			if(name[i]==' '){ //if name is space
+				temp=i; //set i to secondSpace				
+			}
+		}
+		for (int j= temp +1; j < name.length; j++){
+			last[j]=name[j]; //set name to last
+
+		}
+
+		return last;		//fill
+
 	}
 
 	/**
@@ -185,8 +208,24 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return the scrambled version of the name
 	 */
-	static char [] mixUp(char []name) {
-		return null;
+	static char [] mixUp(char []name) { 
+		char []mixUp = new char[name.length]; //create an array for the name
+		Random gen=new Random(); //import random gen
+		for (int i=0; i < name.length; i++){ //run through this until whole name is in mixup
+			mixUp[i] = name[i]; //set name array to mixup arrary
+			
+		}
+		for (int i=0; i < name.length; i++){  
+			int rand = gen.nextInt(name.length); //random #'s as many as in name
+			
+			//three way switch:
+			char temp = mixUp[rand]; //pick random spot and put char in temp
+			mixUp[rand] = mixUp[i]; //put i into random spot
+			mixUp[i] = temp; //put char in temp into spot i 
+		}
+		
+
+		return mixUp; //print Mixupped name
 	}
 
 	/**
@@ -241,11 +280,37 @@ public class WhatsInAName {
 
 	/**
 	 * check to see if name has a title (e.g. Esq., PhD., etc.)
-	 * assigned: c18rc
+	 * assigned: bludetiger
 	 * @param name the user's name
 	 * @return whether there is a title or not
 	 */
 	static boolean title (char [] name){
-		return false;
+		boolean iftitle = false;			
+		//title must have period at either 2nd, 3rd, or 4th char (ex: Dr. , Mrs. , Prof.)
+		if(name[2]=='.' || name[3]=='.' || name[4]=='.') {
+			iftitle = true;
+		}
+		//title could be "Miss"
+		else if (name[0]=='M' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='m' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//title could be "Prof"
+		else if (name[0]=='P' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='p' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//Esq. appears at end of a name
+		else if (name[name.length-1]=='.') {
+			iftitle = true;
+		}
+
+		return iftitle;
 	}
 }
