@@ -17,11 +17,27 @@ public class WhatsInAName {
 
 
 	public static void main(String[] args) {
-		//call functions here
+		//declarations:
 		Scanner scan = new Scanner(System.in);
-		String string= scan.nextLine();
-		System.out.println(middleName(string.toCharArray()));
+		
+		//take a line of input:
+		String name= scan.nextLine();
+		
+		//alison's test area:
+		System.out.println(middleName(name.toCharArray()));
+		
+		//BLU's TEST AREA 🐯
+		
+		//number of vowels
+		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
 
+		//hyphen
+		if (hyphen(name.toCharArray()) == true) {
+			System.out.println("You have a hyphen in your name.");
+		}
+		else {
+			System.out.println("You do not have a hyphen in your name.");
+		}
 	}
 
 	/**
@@ -30,11 +46,22 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's name in reverse
 	 */
-	//static char reverse(char []name) {
-		//char first; //make a thing of the return type
-		//first=name[0];//fill that thing up
-		//return first; //return
-	//}
+	/**
+     * reverse the name
+     * assigned: c18ac1
+     * @param name the user's name
+     * @return user's name in reverse
+     */
+    static char [] reverse(char []name) {
+            char[] reversename = new char[name.length];
+
+            //iterate through name array
+            for (int i = 0; i < name.length; i++) {
+                    reversename[i] = name [name.length-1-i];
+            }
+            return reversename;
+    }
+
 
 	/**
 	 * count number of vowels
@@ -43,7 +70,17 @@ public class WhatsInAName {
 	 * @return number of vowels in user's name
 	 */
 	static int vowels (char [] name){
-		return 0;
+		int numbervowels = 0; //make thing of return type
+		//fill
+			for (int i = 0; i < name.length; i++) {
+				if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u')
+				{
+					numbervowels++;
+				}
+			}
+		//System.out.println(numbervowels);
+		// return
+		return numbervowels;
 	}
 
 	/**
@@ -109,7 +146,16 @@ public class WhatsInAName {
 	 * @return whether there is a hyphen or not
 	 */
 	static boolean hyphen(char [] name){
-		return false;
+		//make thing of return type
+		boolean hyph = false;
+		//fill
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == '-'){
+				hyph = true;
+			}
+		}
+		
+		return hyph;
 	}
 
 	/**
@@ -148,9 +194,20 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return
 	 */
-	static boolean palindrome (char [] name){
-		return false;
-	}
+    static boolean palindrome (char [] name){
+        boolean true_false= false;
+        for (int i = 0; i < name.length; i++) {
+                for (int j = name.length-1; j > 0; j--) {
+                        if (name[i]==name[j]){
+                                true_false=true;
+                        }
+                        else {
+                                true_false=false;
+                        }
+                }
+        }
+        return true_false;
+    }
 
 	/**
 	 * sort the letters of the name alphabetically
