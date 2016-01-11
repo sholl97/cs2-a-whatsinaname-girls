@@ -21,10 +21,9 @@ public class WhatsInAName {
 		Scanner scan = new Scanner(System.in);
 		String name = scan.nextLine();
 
-		//alison's test area:
-		//		System.out.println("your middle name is" + middleName(name.toCharArray()));
-		//		System.out.println(reverse(name.toCharArray()));
-		//palindrome
+		//ALISON - middle name, reverse name, palindrome
+		System.out.println("your middle name is" + middleName(name.toCharArray()));
+		System.out.println(reverse(name.toCharArray()));
 		if (palindrome(name.toCharArray()) == true){
 			System.out.println("Your name is a palindrome.");
 		}
@@ -32,28 +31,21 @@ public class WhatsInAName {
 			System.out.println("Your name is not a palindrome.");
 		}
 
-
-
-		//julia's test area:
+		//JULIA - first name, uppercase, initials
 		System.out.println(firstName(name.toCharArray()));
 		System.out.println(upperCase(name.toCharArray()));
 		System.out.println(initials(name.toCharArray()));
 
-		//BLU's TEST AREA 🐯
-		
-
-		//number of vowels
+		//BLU 🐯 - vowels, hyphen, title
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
-
-		//hyphen
+		
 		if (hyphen(name.toCharArray()) == true) {
 			System.out.println("You have a hyphen in your name.");
 		}
 		else {
 			System.out.println("You do not have a hyphen in your name.");
 		}
-
-		//title
+		
 		if (title(name.toCharArray()) == true){
 			System.out.println("You have a title in your name.");
 		}
@@ -61,25 +53,22 @@ public class WhatsInAName {
 			System.out.println("You do not have a title in your name.");
 		}
 		
-		//rain's test area:
+		//RAIN - last, scramble
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
 		
-
-
-		//Claire's test area!
-		// consonants
+		//CLAIRE - consonant, lowercase, sort
+	
 		System.out.println("You have " + consonants(name.toCharArray()) + " consonants in your name.");
-		//lowercase
+		
 		System.out.print("Your name in lowercase letters: ");
 		for (int i = 0; i < lowerCase(name.toCharArray()).length; i++) {
 			System.out.print(lowerCase(name.toCharArray())[i]);
 		}
-		//sorted alphabet
+		
 		System.out.println();
 		System.out.print("Your name with the letters in order: ");
 		System.out.println(sortedName(name.toCharArray()));
-
 	}
 
 	/**
