@@ -15,19 +15,27 @@ public class WhatsInAName {
 	 * @author c18rc
 	 */
 
-
 	public static void main(String[] args) {
 		//declarations:
 		Scanner scan = new Scanner(System.in);
-		
+
 		//take a line of input:
 		String name= scan.nextLine();
-		
+
 		//alison's test area:
-		System.out.println(middleName(name.toCharArray()));
-		
+		//		System.out.println("your middle name is" + middleName(name.toCharArray()));
+		//		System.out.println(reverse(name.toCharArray()));
+		//palindrome
+		if (palindrome(name.toCharArray()) == true){
+			System.out.println("Your name is a palindrome.");
+		}
+		else {
+			System.out.println("Your name is not a palindrome.");
+		}
+
+
 		//BLU's TEST AREA 🐯
-		
+
 		//number of vowels
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
 
@@ -38,6 +46,14 @@ public class WhatsInAName {
 		else {
 			System.out.println("You do not have a hyphen in your name.");
 		}
+
+		//title
+		if (title(name.toCharArray()) == true){
+			System.out.println("You have a title in your name.");
+		}
+		else {
+			System.out.println("You do not have a title in your name.");
+		}
 	}
 
 	/**
@@ -46,21 +62,15 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's name in reverse
 	 */
-	/**
-     * reverse the name
-     * assigned: c18ac1
-     * @param name the user's name
-     * @return user's name in reverse
-     */
-    static char [] reverse(char []name) {
-            char[] reversename = new char[name.length];
+	static char [] reverse(char []name) {
+		char[] reversename = new char[name.length];
 
-            //iterate through name array
-            for (int i = 0; i < name.length; i++) {
-                    reversename[i] = name [name.length-1-i];
-            }
-            return reversename;
-    }
+		//iterate through name array
+		for (int i = 0; i < name.length; i++) {
+			reversename[i] = name [name.length-1-i];
+		}
+		return reversename;
+	}
 
 
 	/**
@@ -72,12 +82,12 @@ public class WhatsInAName {
 	static int vowels (char [] name){
 		int numbervowels = 0; //make thing of return type
 		//fill
-			for (int i = 0; i < name.length; i++) {
-				if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u')
-				{
-					numbervowels++;
-				}
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u' || name[i] =='A' || name[i] == 'E' || name[i] == 'I' || name[i] == 'O' || name[i] == 'U')
+			{
+				numbervowels++;
 			}
+		}
 		//System.out.println(numbervowels);
 		// return
 		return numbervowels;
@@ -119,16 +129,16 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's middle name
 	 */
-	static char[] middleName(char []name) {
-		char[] middle = null;
+	static String middleName(char []name) {
+		char[] middle = new char[name.length];
 		int firstSpace = 0;
 		int secondSpace = 0;
-		for (int i = 0; i < name.length; i++) {
-			if (name[i]== ' ') {
+		for (int i = name.length-1; i > 0; i--) {
+			if (name[i]==' ') {
 				firstSpace=i;
 			}
-			for (int j = 0; j < name.length; j++) {
-				if (name[j]== ' ') {
+			for (int j = 0; j < name.length-1; j++) {
+				if (name[j]==' ') {
 					secondSpace=j;
 				}
 			}
@@ -136,7 +146,14 @@ public class WhatsInAName {
 		for (int k=firstSpace; k<secondSpace; k++) {
 			middle[k]=name[k];
 		}
-		return middle; 
+
+		//	convert to string
+		String output = "";
+		for (int i = 0; i < middle.length; i++) {
+			output += middle[i];
+		}
+
+		return output; 
 	}
 
 	/**
@@ -154,7 +171,7 @@ public class WhatsInAName {
 				hyph = true;
 			}
 		}
-		
+
 		return hyph;
 	}
 
@@ -194,20 +211,20 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return
 	 */
-    static boolean palindrome (char [] name){
-        boolean true_false= false;
-        for (int i = 0; i < name.length; i++) {
-                for (int j = name.length-1; j > 0; j--) {
-                        if (name[i]==name[j]){
-                                true_false=true;
-                        }
-                        else {
-                                true_false=false;
-                        }
-                }
-        }
-        return true_false;
-    }
+	static boolean palindrome (char [] name){
+		boolean true_false= false;
+		for (int i = 0; i < name.length; i++) {
+			for (int j = name.length-1; j > 0; j--) {
+				if (name[i]==name[j]){
+					true_false=true;
+				}
+				else {
+					true_false=false;
+				}
+			}
+		}
+		return true_false;
+	}
 
 	/**
 	 * sort the letters of the name alphabetically
@@ -231,11 +248,37 @@ public class WhatsInAName {
 
 	/**
 	 * check to see if name has a title (e.g. Esq., PhD., etc.)
-	 * assigned: c18rc
+	 * assigned: bludetiger
 	 * @param name the user's name
 	 * @return whether there is a title or not
 	 */
 	static boolean title (char [] name){
-		return false;
+		boolean iftitle = false;			
+		//title must have period at either 2nd, 3rd, or 4th char (ex: Dr. , Mrs. , Prof.)
+		if(name[2]=='.' || name[3]=='.' || name[4]=='.') {
+			iftitle = true;
+		}
+		//title could be "Miss"
+		else if (name[0]=='M' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='m' && name[1]=='i' && name[2] == 's' && name[3] == 's') {
+			iftitle = true;
+		}
+		//title could be "Prof"
+		else if (name[0]=='P' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//accounting for lowercase
+		else if (name[0]=='p' && name[1]=='r' && name[2] == 'o' && name[3] == 'f') {
+			iftitle = true;
+		}
+		//Esq. appears at end of a name
+		else if (name[name.length-1]=='.') {
+			iftitle = true;
+		}
+
+		return iftitle;
 	}
 }
