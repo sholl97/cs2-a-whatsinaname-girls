@@ -17,18 +17,9 @@ public class WhatsInAName {
 	 */
 
 	public static void main(String[] args) {
-		//declarations:
-		Scanner scan = new Scanner(System.in);
-		String name = scan.nextLine();
-
-
-		//julia's test area:
-		System.out.println(firstName(name.toCharArray()));
-		System.out.println(upperCase(name.toCharArray()));
-		System.out.println(initials(name.toCharArray()));
-
 		//BLU's TEST AREA 🐯
-		
+		Scanner scan = new Scanner (System.in);
+		String name = scan.nextLine();
 
 		//number of vowels
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
@@ -49,7 +40,7 @@ public class WhatsInAName {
 			System.out.println("You do not have a title in your name.");
 		}
 		
-		//RAIN'S TEST AREA: 
+		//rain's test area:
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
 		
@@ -123,18 +114,7 @@ public class WhatsInAName {
 	 * @return user's first name
 	 */
 	static char [] firstName(char []name) {
-		//creating the array
-		char [] first = new char [name.length];
-		int temp = 0; 
-		for (int i = 0; i < name.length; i++) {
-			if(name[i]==' ') { //if there is a space
-				temp = i;	//set temp to i
-			}
-		}
-		for (int j = 0; j < temp; j++) {
-			first[j]=name[j]; //set name to first
-		}
-		return first;
+		return null;
 	}
 
 	/**
@@ -219,18 +199,7 @@ public class WhatsInAName {
 	 * @return user's name in uppercase
 	 */
 	static char [] upperCase(char []name) {
-		char [] uppercasename = new char[name.length];
-
-		for (int i = 0; i < uppercasename.length; i++) {
-			if(name[i] >= 97 & name[i]<= 122) {
-				name[i] = (char) (name[i] - 32);
-				uppercasename[i] = name[i];
-			}
-			else {
-				uppercasename[i] = name[i];
-			}
-		}
-		return uppercasename;
+		return null;
 	}
 
 	/**
@@ -306,18 +275,7 @@ public class WhatsInAName {
 	 * @return the initials of the user's name
 	 */
 	static char [] initials(char []name) {
-		char [] initial = new char[name.length];
-		int temp = 0;
-		initial[0]= name[0];
-		for (int i = 0; i < name.length; i++) {
-			if(name[i]==' ') { //if there is a space
-				temp = (i+1);	//set temp to i+1
-				
-				initial[1] = name[temp];
-			}
-		}
-
-		return initial;
+		return null;
 	}
 
 	/**
@@ -355,7 +313,6 @@ public class WhatsInAName {
 
 		return iftitle;
 	}
-	
 	/**
 	 * 
 	 */
