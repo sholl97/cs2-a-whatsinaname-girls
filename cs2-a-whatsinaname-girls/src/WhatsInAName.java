@@ -17,11 +17,31 @@ public class WhatsInAName {
 
 
 	public static void main(String[] args) {
-		//call functions here
+		//declarations:
 		Scanner scan = new Scanner(System.in);
-		String string = scan.nextLine();
-		System.out.println(firstName(string.toCharArray()));
-		System.out.println(upperCase(string.toCharArray()));
+
+
+		//take an input:
+		String name = scan.nextLine();
+
+
+		//julia's test area:
+		System.out.println(firstName(name.toCharArray()));
+		System.out.println(upperCase(name.toCharArray()));
+		System.out.println(initials(name.toCharArray()));
+
+		//BLU's TEST AREA 🐯
+
+		//number of vowels
+		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
+
+		//hyphen
+		if (hyphen(name.toCharArray()) == true) {
+			System.out.println("You have a hyphen in your name.");
+		}
+		else {
+			System.out.println("You do not have a hyphen in your name.");
+		}
 	}
 
 	/**
@@ -41,7 +61,17 @@ public class WhatsInAName {
 	 * @return number of vowels in user's name
 	 */
 	static int vowels (char [] name){
-		return 0;
+		int numbervowels = 0; //make thing of return type
+		//fill
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == 'a' || name[i] == 'e' || name[i] == 'i' || name[i] == 'o' || name[i] == 'u')
+			{
+				numbervowels++;
+			}
+		}
+		//System.out.println(numbervowels);
+		// return
+		return numbervowels;
 	}
 
 	/**
@@ -63,7 +93,7 @@ public class WhatsInAName {
 	static char [] firstName(char []name) {
 		//creating the array
 		char [] first = new char [name.length];
-		int temp = 0;
+		int temp = 0; 
 		for (int i = 0; i < name.length; i++) {
 			if(name[i]==' ') { //if there is a space
 				temp = i;	//set temp to i
@@ -72,12 +102,8 @@ public class WhatsInAName {
 		for (int j = 0; j < temp; j++) {
 			first[j]=name[j]; //set name to first
 		}
-
-
 		return first;
 	}
-
-
 
 	/**
 	 * find last name
@@ -106,7 +132,16 @@ public class WhatsInAName {
 	 * @return whether there is a hyphen or not
 	 */
 	static boolean hyphen(char [] name){
-		return false;
+		//make thing of return type
+		boolean hyph = false;
+		//fill
+		for (int i = 0; i < name.length; i++) {
+			if (name[i] == '-'){
+				hyph = true;
+			}
+		}
+
+		return hyph;
 	}
 
 	/**
@@ -177,7 +212,18 @@ public class WhatsInAName {
 	 * @return the initials of the user's name
 	 */
 	static char [] initials(char []name) {
-		return null;
+		char [] initial = new char[name.length];
+		int temp = 0;
+		initial[0]= name[0];
+		for (int i = 0; i < name.length; i++) {
+			if(name[i]==' ') { //if there is a space
+				temp = (i+1);	//set temp to i+1
+				
+				initial[1] = name[temp];
+			}
+		}
+
+		return initial;
 	}
 
 	/**
