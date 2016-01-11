@@ -17,9 +17,30 @@ public class WhatsInAName {
 	 */
 
 	public static void main(String[] args) {
-		//BLU's TEST AREA 🐯
-		Scanner scan = new Scanner (System.in);
+		//declarations:
+		Scanner scan = new Scanner(System.in);
 		String name = scan.nextLine();
+
+		//alison's test area:
+		//		System.out.println("your middle name is" + middleName(name.toCharArray()));
+		//		System.out.println(reverse(name.toCharArray()));
+		//palindrome
+		if (palindrome(name.toCharArray()) == true){
+			System.out.println("Your name is a palindrome.");
+		}
+		else {
+			System.out.println("Your name is not a palindrome.");
+		}
+
+
+
+		//julia's test area:
+		System.out.println(firstName(name.toCharArray()));
+		System.out.println(upperCase(name.toCharArray()));
+		System.out.println(initials(name.toCharArray()));
+
+		//BLU's TEST AREA 🐯
+		
 
 		//number of vowels
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
@@ -68,8 +89,15 @@ public class WhatsInAName {
 	 * @return user's name in reverse
 	 */
 	static char [] reverse(char []name) {
-		return null;
+		char[] reversename = new char[name.length];
+
+		//iterate through name array
+		for (int i = 0; i < name.length; i++) {
+			reversename[i] = name [name.length-1-i];
+		}
+		return reversename;
 	}
+
 
 	/**
 	 * count number of vowels
@@ -114,7 +142,18 @@ public class WhatsInAName {
 	 * @return user's first name
 	 */
 	static char [] firstName(char []name) {
-		return null;
+		//creating the array
+		char [] first = new char [name.length];
+		int temp = 0; 
+		for (int i = 0; i < name.length; i++) {
+			if(name[i]==' ') { //if there is a space
+				temp = i;	//set temp to i
+			}
+		}
+		for (int j = 0; j < temp; j++) {
+			first[j]=name[j]; //set name to first
+		}
+		return first;
 	}
 
 	/**
@@ -147,8 +186,31 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's middle name
 	 */
-	static char [] middleName(char []name) {
-		return null;
+	static String middleName(char []name) {
+		char[] middle = new char[name.length];
+		int firstSpace = 0;
+		int secondSpace = 0;
+		for (int i = name.length-1; i > 0; i--) {
+			if (name[i]==' ') {
+				firstSpace=i;
+			}
+			for (int j = 0; j < name.length-1; j++) {
+				if (name[j]==' ') {
+					secondSpace=j;
+				}
+			}
+		}
+		for (int k=firstSpace; k<secondSpace; k++) {
+			middle[k]=name[k];
+		}
+
+		//	convert to string
+		String output = "";
+		for (int i = 0; i < middle.length; i++) {
+			output += middle[i];
+		}
+
+		return output; 
 	}
 
 	/**
@@ -199,7 +261,18 @@ public class WhatsInAName {
 	 * @return user's name in uppercase
 	 */
 	static char [] upperCase(char []name) {
-		return null;
+		char [] uppercasename = new char[name.length];
+
+		for (int i = 0; i < uppercasename.length; i++) {
+			if(name[i] >= 97 & name[i]<= 122) {
+				name[i] = (char) (name[i] - 32);
+				uppercasename[i] = name[i];
+			}
+			else {
+				uppercasename[i] = name[i];
+			}
+		}
+		return uppercasename;
 	}
 
 	/**
@@ -235,7 +308,18 @@ public class WhatsInAName {
 	 * @return
 	 */
 	static boolean palindrome (char [] name){
-		return false;
+		boolean true_false= false;
+		for (int i = 0; i < name.length; i++) {
+			for (int j = name.length-1; j > 0; j--) {
+				if (name[i]==name[j]){
+					true_false=true;
+				}
+				else {
+					true_false=false;
+				}
+			}
+		}
+		return true_false;
 	}
 
 	/**
@@ -275,7 +359,18 @@ public class WhatsInAName {
 	 * @return the initials of the user's name
 	 */
 	static char [] initials(char []name) {
-		return null;
+		char [] initial = new char[name.length];
+		int temp = 0;
+		initial[0]= name[0];
+		for (int i = 0; i < name.length; i++) {
+			if(name[i]==' ') { //if there is a space
+				temp = (i+1);	//set temp to i+1
+				
+				initial[1] = name[temp];
+			}
+		}
+
+		return initial;
 	}
 
 	/**
@@ -313,7 +408,4 @@ public class WhatsInAName {
 
 		return iftitle;
 	}
-	/**
-	 * 
-	 */
 }
