@@ -40,7 +40,7 @@ public class WhatsInAName {
 			System.out.println("You do not have a title in your name.");
 		}
 		
-		//rain's test area:
+		//RAIN'S TEST AREA: 
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
 		
@@ -260,4 +260,8 @@ public class WhatsInAName {
 
 		return iftitle;
 	}
+	
+	/**
+	 * 
+	 */
 }
