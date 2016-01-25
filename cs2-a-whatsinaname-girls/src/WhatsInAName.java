@@ -21,26 +21,31 @@ public class WhatsInAName {
 		Scanner scan = new Scanner(System.in);
 		String name = scan.nextLine();
 
-		//julia's test area:
+		//ALISON - middle name, reverse name, palindrome
+		System.out.println("your middle name is" + middleName(name.toCharArray()));
+		System.out.println(reverse(name.toCharArray()));
+		if (palindrome(name.toCharArray()) == true){
+			System.out.println("Your name is a palindrome.");
+		}
+		else {
+			System.out.println("Your name is not a palindrome.");
+		}
+
+		//JULIA - first name, uppercase, initials
 		System.out.println(firstName(name.toCharArray()));
 		System.out.println(upperCase(name.toCharArray()));
 		System.out.println(initials(name.toCharArray()));
 
-		//BLU's TEST AREA 🐯
-		
-
-		//number of vowels
+		//BLU 🐯 - vowels, hyphen, title
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
-
-		//hyphen
+		
 		if (hyphen(name.toCharArray()) == true) {
 			System.out.println("You have a hyphen in your name.");
 		}
 		else {
 			System.out.println("You do not have a hyphen in your name.");
 		}
-
-		//title
+		
 		if (title(name.toCharArray()) == true){
 			System.out.println("You have a title in your name.");
 		}
@@ -48,25 +53,22 @@ public class WhatsInAName {
 			System.out.println("You do not have a title in your name.");
 		}
 		
-		//RAIN'S TEST AREA: 
+		//RAIN - last, scramble
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
 		
-
-
-		//Claire's test area!
-		// consonants
+		//CLAIRE - consonant, lowercase, sort
+	
 		System.out.println("You have " + consonants(name.toCharArray()) + " consonants in your name.");
-		//lowercase
+		
 		System.out.print("Your name in lowercase letters: ");
 		for (int i = 0; i < lowerCase(name.toCharArray()).length; i++) {
 			System.out.print(lowerCase(name.toCharArray())[i]);
 		}
-		//sorted alphabet
+		
 		System.out.println();
 		System.out.print("Your name with the letters in order: ");
 		System.out.println(sortedName(name.toCharArray()));
-
 	}
 
 	/**
@@ -76,8 +78,15 @@ public class WhatsInAName {
 	 * @return user's name in reverse
 	 */
 	static char [] reverse(char []name) {
-		return null;
+		char[] reversename = new char[name.length];
+
+		//iterate through name array
+		for (int i = 0; i < name.length; i++) {
+			reversename[i] = name [name.length-1-i];
+		}
+		return reversename;
 	}
+
 
 	/**
 	 * count number of vowels
@@ -166,8 +175,31 @@ public class WhatsInAName {
 	 * @param name the user's name
 	 * @return user's middle name
 	 */
-	static char [] middleName(char []name) {
-		return null;
+	static String middleName(char []name) {
+		char[] middle = new char[name.length];
+		int firstSpace = 0;
+		int secondSpace = 0;
+		for (int i = name.length-1; i > 0; i--) {
+			if (name[i]==' ') {
+				firstSpace=i;
+			}
+			for (int j = 0; j < name.length-1; j++) {
+				if (name[j]==' ') {
+					secondSpace=j;
+				}
+			}
+		}
+		for (int k=firstSpace; k<secondSpace; k++) {
+			middle[k]=name[k];
+		}
+
+		//	convert to string
+		String output = "";
+		for (int i = 0; i < middle.length; i++) {
+			output += middle[i];
+		}
+
+		return output; 
 	}
 
 	/**
@@ -265,7 +297,18 @@ public class WhatsInAName {
 	 * @return
 	 */
 	static boolean palindrome (char [] name){
-		return false;
+		boolean true_false= false;
+		for (int i = 0; i < name.length; i++) {
+			for (int j = name.length-1; j > 0; j--) {
+				if (name[i]==name[j]){
+					true_false=true;
+				}
+				else {
+					true_false=false;
+				}
+			}
+		}
+		return true_false;
 	}
 
 	/**
@@ -354,123 +397,4 @@ public class WhatsInAName {
 
 		return iftitle;
 	}
-	
-	/**
-	 * name definition
-	 * assigned: c18ac1
-	 * @param 
-	 * @return
-	 */
-	//import dalton word
-	
-	/**
-	 * random title
-	 * assigned: bludetiger
-	 * @param
-	 * @return
-	 */
-	//list all possible titles
-	//randomly generate one
-	
-	/**
-	 * pig latin
-	 * assigned: c18ck
-	 * @param
-	 * @return
-	 */
-	//see where first vowel is, pick all those letters then move it
-	
-	/** 
-	 * consonant name (name in all consonants)
-	 * assigned: c18ac1
-	 * @param
-	 * @return
-	 */
-	//find all consonants, just list those
-	
-	/**
-	 * emoji per vowel
-	 * assigned: c18rc
-	 * @param
-	 * @return
-	 */
-	//replace vowels with emojis
-	//i's w/ hearts
-	
-	/**
-	 * give people new middle name
-	 * assigned: c18ac1
-	 * @param
-	 * @return
-	 */
-	//list of names in array then random gen to pick one
-	
-	/**
-	 * combine names
-	 * assigned: bludetiger
-	 * @param
-	 * @return
-	 */
-	//make combined name from 2 people
-	
-	/**
-	 * password
-	 * assigned: c18ck
-	 * @param
-	 * @return
-	 */
-	//generate password using initials and birth year
-	
-	/**
-	 * username
-	 * assigned: c18jj
-	 * @param
-	 * @return
-	 */
-	//generate username using something
-	
-	/**
-	 * mash
-	 * assigned: c18rc
-	 * @param
-	 * @return
-	 */
-	//make list of random baby names (approx 6) then choose one
-	
-	/**
-	 * nickname generator
-	 * assigned: c18ac1
-	 * @param
-	 * @return
-	 */
-	//
-	
-	/**
-	 * generate Dalton email
-	 * assigned: bludetiger
-	 * @param
-	 * @return
-	 */
-	
-	/**
-	 * food name
-	 * assigned: c18ck
-	 * @param
-	 * @return
-	 */
-	
-	/**
-	 * guess eye color
-	 * assigned: c18jj
-	 * @param
-	 * @return
-	 */
-	
-	/**
-	 * vowel name (name in all vowels)
-	 * assigned: c18rc
-	 * @param
-	 * @return
-	 */
-
 }
