@@ -38,34 +38,34 @@ public class WhatsInAName {
 
 		//BLU 🐯 - vowels, hyphen, title
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
-		
+
 		if (hyphen(name.toCharArray()) == true) {
 			System.out.println("You have a hyphen in your name.");
 		}
 		else {
 			System.out.println("You do not have a hyphen in your name.");
 		}
-		
+
 		if (title(name.toCharArray()) == true){
 			System.out.println("You have a title in your name.");
 		}
 		else {
 			System.out.println("You do not have a title in your name.");
 		}
-		
+
 		//RAIN - last, scramble
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
-		
+
 		//CLAIRE - consonant, lowercase, sort
-	
+
 		System.out.println("You have " + consonants(name.toCharArray()) + " consonants in your name.");
-		
+
 		System.out.print("Your name in lowercase letters: ");
 		for (int i = 0; i < lowerCase(name.toCharArray()).length; i++) {
 			System.out.print(lowerCase(name.toCharArray())[i]);
 		}
-		
+
 		System.out.println();
 		System.out.print("Your name with the letters in order: ");
 		System.out.println(sortedName(name.toCharArray()));
@@ -275,17 +275,17 @@ public class WhatsInAName {
 		Random gen=new Random(); //import random gen
 		for (int i=0; i < name.length; i++){ //run through this until whole name is in mixup
 			mixUp[i] = name[i]; //set name array to mixup arrary
-			
+
 		}
 		for (int i=0; i < name.length; i++){  
 			int rand = gen.nextInt(name.length); //random #'s as many as in name
-			
+
 			//three way switch:
 			char temp = mixUp[rand]; //pick random spot and put char in temp
 			mixUp[rand] = mixUp[i]; //put i into random spot
 			mixUp[i] = temp; //put char in temp into spot i 
 		}
-		
+
 
 		return mixUp; //print Mixupped name
 	}
@@ -354,7 +354,7 @@ public class WhatsInAName {
 		for (int i = 0; i < name.length; i++) {
 			if(name[i]==' ') { //if there is a space
 				temp = (i+1);	//set temp to i+1
-				
+
 				initial[1] = name[temp];
 			}
 		}
@@ -397,4 +397,121 @@ public class WhatsInAName {
 
 		return iftitle;
 	}
+
+	/**
+	 * name definition
+	 * assigned: c18ac1
+	 * @param 
+	 * @return
+	 */
+	//import dalton word
+	
+	/**
+	 * random title
+	 * assigned: bludetiger
+	 * @param
+	 * @return
+	 */
+	//list all possible titles
+	//randomly generate one
+	
+	/**
+	 * pig latin
+	 * assigned: c18ck
+	 * @param
+	 * @return
+	 */
+	//see where first vowel is, pick all those letters then move it
+	
+	/** 
+	 * consonant name (name in all consonants)
+	 * assigned: c18ac1
+	 * @param
+	 * @return
+	 */
+	//find all consonants, just list those
+	
+	/**
+	 * emoji per vowel
+	 * assigned: c18rc
+	 * @param
+	 * @return
+	 */
+	//replace vowels with emojis
+	//i's w/ hearts
+	
+	/**
+	 * give people new middle name
+	 * assigned: c18ac1
+	 * @param
+	 * @return
+	 */
+	//list of names in array then random gen to pick one
+	
+	/**
+	 * combine names
+	 * assigned: bludetiger
+	 * @param
+	 * @return
+	 */
+	//make combined name from 2 people
+	
+	/**
+	 * password
+	 * assigned: c18ck
+	 * @param
+	 * @return
+	 */
+	//generate password using initials and birth year
+	
+	/**
+	 * username
+	 * assigned: c18jj
+	 * @param
+	 * @return
+	 */
+	//generate username using something
+	
+	/**
+	 * mash
+	 * assigned: c18rc
+	 * @param
+	 * @return
+	 */
+	//make list of random baby names (approx 6) then choose one
+	
+	/**
+	 * nickname generator
+	 * assigned: c18ac1
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * generate Dalton email
+	 * assigned: bludetiger
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * food name
+	 * assigned: c18ck
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * guess eye color
+	 * assigned: c18jj
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * vowel name (name in all vowels)
+	 * assigned: c18rc
+	 * @param
+	 * @return
+	 */
 }
