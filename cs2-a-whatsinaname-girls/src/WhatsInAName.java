@@ -19,14 +19,15 @@ public class WhatsInAName {
 	public static void main(String[] args) {
 		//declarations:
 		Scanner scan = new Scanner(System.in);
-		String name = scan.nextLine();
 
 		//take a line of input:
 		String name= scan.nextLine();
 
 		//alison's test area:
-		//		System.out.println("your middle name is" + middleName(name.toCharArray()));
-		//		System.out.println(reverse(name.toCharArray()));
+		//middle name
+		System.out.println("your middle name is" + middleName(name.toCharArray()));
+		//reverse
+		System.out.println(reverse(name.toCharArray()));
 		//palindrome
 		if (palindrome(name.toCharArray()) == true){
 			System.out.println("Your name is a palindrome.");
@@ -34,8 +35,8 @@ public class WhatsInAName {
 		else {
 			System.out.println("Your name is not a palindrome.");
 		}
-
-
+		//name definition
+		System.out.println("the definition of your name is " + nameDefinition(name.toCharArray()) + ".");
 
 		//julia's test area:
 		System.out.println(firstName(name.toCharArray()));
@@ -43,8 +44,6 @@ public class WhatsInAName {
 		System.out.println(initials(name.toCharArray()));
 
 		//BLU's TEST AREA 🐯
-		
-
 		//number of vowels
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
 
@@ -63,11 +62,11 @@ public class WhatsInAName {
 		else {
 			System.out.println("You do not have a title in your name.");
 		}
-		
+
 		//RAIN'S TEST AREA: 
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
-		
+
 
 
 		//Claire's test area!
@@ -289,17 +288,17 @@ public class WhatsInAName {
 		Random gen=new Random(); //import random gen
 		for (int i=0; i < name.length; i++){ //run through this until whole name is in mixup
 			mixUp[i] = name[i]; //set name array to mixup arrary
-			
+
 		}
 		for (int i=0; i < name.length; i++){  
 			int rand = gen.nextInt(name.length); //random #'s as many as in name
-			
+
 			//three way switch:
 			char temp = mixUp[rand]; //pick random spot and put char in temp
 			mixUp[rand] = mixUp[i]; //put i into random spot
 			mixUp[i] = temp; //put char in temp into spot i 
 		}
-		
+
 
 		return mixUp; //print Mixupped name
 	}
@@ -368,7 +367,7 @@ public class WhatsInAName {
 		for (int i = 0; i < name.length; i++) {
 			if(name[i]==' ') { //if there is a space
 				temp = (i+1);	//set temp to i+1
-				
+
 				initial[1] = name[temp];
 			}
 		}
@@ -410,5 +409,21 @@ public class WhatsInAName {
 		}
 
 		return iftitle;
+	}
+	/**
+	 * get definition
+	 * assigned: c18ac1
+	 * @param name
+	 * @return definition
+	 */
+	static String nameDefinition (char [] name) {
+		Random gen = new Random(); 
+		gen.nextInt(14);
+		String [] definition = new String [] {
+				"happiness", "noble ", "an orange and black American butterfly ", "name of God ", "clear ", "bright ", 
+				"famous ", "tear drops ", "victory of the people ", "famous army ", "lady's maid" , "to bind/tie ", 
+				"gift of God", "a pearl ", "trying to equal or excel/rival "
+		};
+		return definition[gen.nextInt(14)];
 	}
 }
