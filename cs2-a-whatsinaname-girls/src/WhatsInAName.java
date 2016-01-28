@@ -19,7 +19,8 @@ public class WhatsInAName {
 	public static void main(String[] args) {
 		//declarations:
 		Scanner scan = new Scanner(System.in);
-
+		String name = scan.nextLine();
+		
 		//ALISON - middle name, reverse name, palindrome
 		System.out.println("your middle name is" + middleName(name.toCharArray()));
 		System.out.println(reverse(name.toCharArray()));
