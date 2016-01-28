@@ -20,15 +20,9 @@ public class WhatsInAName {
 		//declarations:
 		Scanner scan = new Scanner(System.in);
 
-		//take a line of input:
-		String name= scan.nextLine();
-
-		//alison's test area:
-		//middle name
+		//ALISON - middle name, reverse name, palindrome
 		System.out.println("your middle name is" + middleName(name.toCharArray()));
-		//reverse
 		System.out.println(reverse(name.toCharArray()));
-		//palindrome
 		if (palindrome(name.toCharArray()) == true){
 			System.out.println("Your name is a palindrome.");
 		}
@@ -38,16 +32,14 @@ public class WhatsInAName {
 		//name definition
 		System.out.println("the definition of your name is " + nameDefinition(name.toCharArray()) + ".");
 
-		//julia's test area:
+		//JULIA - first name, uppercase, initials
 		System.out.println(firstName(name.toCharArray()));
 		System.out.println(upperCase(name.toCharArray()));
 		System.out.println(initials(name.toCharArray()));
 
-		//BLU's TEST AREA 🐯
-		//number of vowels
+		//BLU 🐯 - vowels, hyphen, title
 		System.out.println("You have " + vowels(name.toCharArray()) + " vowels in your name");
 
-		//hyphen
 		if (hyphen(name.toCharArray()) == true) {
 			System.out.println("You have a hyphen in your name.");
 		}
@@ -55,7 +47,6 @@ public class WhatsInAName {
 			System.out.println("You do not have a hyphen in your name.");
 		}
 
-		//title
 		if (title(name.toCharArray()) == true){
 			System.out.println("You have a title in your name.");
 		}
@@ -63,25 +54,22 @@ public class WhatsInAName {
 			System.out.println("You do not have a title in your name.");
 		}
 
-		//RAIN'S TEST AREA: 
+		//RAIN - last, scramble
 		System.out.println(lastName(name.toCharArray())); //call last name function 
 		System.out.println(mixUp(name.toCharArray())); //call mixup function
 
+		//CLAIRE - consonant, lowercase, sort
 
-
-		//Claire's test area!
-		// consonants
 		System.out.println("You have " + consonants(name.toCharArray()) + " consonants in your name.");
-		//lowercase
+
 		System.out.print("Your name in lowercase letters: ");
 		for (int i = 0; i < lowerCase(name.toCharArray()).length; i++) {
 			System.out.print(lowerCase(name.toCharArray())[i]);
 		}
-		//sorted alphabet
+
 		System.out.println();
 		System.out.print("Your name with the letters in order: ");
 		System.out.println(sortedName(name.toCharArray()));
-
 	}
 
 	/**
@@ -410,20 +398,121 @@ public class WhatsInAName {
 
 		return iftitle;
 	}
+
 	/**
-	 * get definition
+	 * name definition
 	 * assigned: c18ac1
-	 * @param name
-	 * @return definition
+	 * @param 
+	 * @return
 	 */
-	static String nameDefinition (char [] name) {
-		Random gen = new Random(); 
-		gen.nextInt(14);
-		String [] definition = new String [] {
-				"happiness", "noble ", "an orange and black American butterfly ", "name of God ", "clear ", "bright ", 
-				"famous ", "tear drops ", "victory of the people ", "famous army ", "lady's maid" , "to bind/tie ", 
-				"gift of God", "a pearl ", "trying to equal or excel/rival "
-		};
-		return definition[gen.nextInt(14)];
-	}
+	//import dalton word
+	
+	/**
+	 * random title
+	 * assigned: bludetiger
+	 * @param
+	 * @return
+	 */
+	//list all possible titles
+	//randomly generate one
+	
+	/**
+	 * pig latin
+	 * assigned: c18ck
+	 * @param
+	 * @return
+	 */
+	//see where first vowel is, pick all those letters then move it
+	
+	/** 
+	 * consonant name (name in all consonants)
+	 * assigned: c18ac1
+	 * @param
+	 * @return
+	 */
+	//find all consonants, just list those
+	
+	/**
+	 * emoji per vowel
+	 * assigned: c18rc
+	 * @param
+	 * @return
+	 */
+	//replace vowels with emojis
+	//i's w/ hearts
+	
+	/**
+	 * give people new middle name
+	 * assigned: c18ac1
+	 * @param
+	 * @return
+	 */
+	//list of names in array then random gen to pick one
+	
+	/**
+	 * combine names
+	 * assigned: bludetiger
+	 * @param
+	 * @return
+	 */
+	//make combined name from 2 people
+	
+	/**
+	 * password
+	 * assigned: c18ck
+	 * @param
+	 * @return
+	 */
+	//generate password using initials and birth year
+	
+	/**
+	 * username
+	 * assigned: c18jj
+	 * @param
+	 * @return
+	 */
+	//generate username using something
+	
+	/**
+	 * mash
+	 * assigned: c18rc
+	 * @param
+	 * @return
+	 */
+	//make list of random baby names (approx 6) then choose one
+	
+	/**
+	 * nickname generator
+	 * assigned: c18ac1
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * generate Dalton email
+	 * assigned: bludetiger
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * food name
+	 * assigned: c18ck
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * guess eye color
+	 * assigned: c18jj
+	 * @param
+	 * @return
+	 */
+	
+	/**
+	 * vowel name (name in all vowels)
+	 * assigned: c18rc
+	 * @param
+	 * @return
+	 */
 }
